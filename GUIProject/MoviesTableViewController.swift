@@ -1,20 +1,21 @@
 //
-//  TeathresTableViewController.swift
+//  MoviesTableViewController.swift
 //  GUIProject
 //
-//  Created by Matias on 11/22/16.
+//  Created by Matias on 11/23/16.
 //  Copyright © 2016 Matias. All rights reserved.
 //
 
 import UIKit
 
-class TeathresTableViewController: UITableViewController, UISearchBarDelegate{
+class MoviesTableViewController: UITableViewController, UISearchBarDelegate {
+
+    var searchActive : Bool = false
+    var data = ["Allied - 1hr 56min","Bad Santa 2 - 1hr 28min","Moana - 2hr 2min","Bleed for this - 2hr 28min"]
+    var filtered:[String] = []
+    
 
     @IBOutlet weak var searchBar: UISearchBar!
-    
-    var searchActive : Bool = false
-    var data = ["Grand Rapids","Wyoming","Kentwood","Forest Hills"]
-    var filtered:[String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,33 +23,15 @@ class TeathresTableViewController: UITableViewController, UISearchBarDelegate{
         searchBar.delegate = self
         self.tableView.tableHeaderView = searchBar
         
-        self.navigationItem.title = "Cities"
-        
-        let alert2 = UIAlertController(title: "Requesting Permission", message: "Let us get your location to help you choosing your cinema", preferredStyle: .actionSheet)
-        alert2.addAction(UIAlertAction(title: "OK", style: .default) { action in
-            // perhaps use action.title here
-        })
-        
-        let alert = UIAlertController(title: "Alert", message: "It seems like you are in Grand Rapids, MI. Showing cinemas close to you area...", preferredStyle: .actionSheet)
-        alert.addAction(UIAlertAction(title: "OK", style: .default) { action in
-            self.present(alert2, animated: true)
-        })
-        self.present(alert, animated: true)
-        
-        
-        //var citiesSearchResult:Array<String>?
+        self.navigationItem.title = "Movies"
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        
-        
     }
-    
 
-    
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         searchActive = true;
     }
@@ -79,6 +62,7 @@ class TeathresTableViewController: UITableViewController, UISearchBarDelegate{
         }
         self.tableView.reloadData()
     }
+
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -89,7 +73,7 @@ class TeathresTableViewController: UITableViewController, UISearchBarDelegate{
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return 3
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -100,22 +84,36 @@ class TeathresTableViewController: UITableViewController, UISearchBarDelegate{
         return data.count;
     }
 
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell3", for: indexPath)
+        
         // Configure the cell...
         if(searchActive){
             cell.textLabel?.text = filtered[indexPath.row]
         } else {
             cell.textLabel?.text = data[indexPath.row];
         }
-        cell.detailTextLabel?.text = "Michigan"
-
+        cell.detailTextLabel?.text = "3pm, 6:16pm, 645pm, 9pm, 10:30pm"
+        
         return cell
     }
     
-    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        var sectionName:String
+        switch (section)
+        {
+        case 0:
+            sectionName = "Today"
+            break;
+        case 1:
+            sectionName = "Tomorrow"
+            break;
+        default:
+            sectionName = "Day After Tomorrow"
+            break;
+        }
+        return sectionName;
+    }
 
     /*
     // Override to support conditional editing of the table view.

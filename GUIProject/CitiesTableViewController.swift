@@ -1,20 +1,22 @@
 //
-//  TeathresTableViewController.swift
+//  CitiesTableViewController.swift
 //  GUIProject
 //
-//  Created by Matias on 11/22/16.
+//  Created by Matias on 11/23/16.
 //  Copyright © 2016 Matias. All rights reserved.
 //
 
 import UIKit
 
-class TeathresTableViewController: UITableViewController, UISearchBarDelegate{
+class CitiesTableViewController: UITableViewController, UISearchBarDelegate {
+
 
     @IBOutlet weak var searchBar: UISearchBar!
     
     var searchActive : Bool = false
-    var data = ["Grand Rapids","Wyoming","Kentwood","Forest Hills"]
+    var data = ["Urban Institute for Contemporary","AMC GR 18","Celebration! Cinema GR Woodland","Celebration! Cinema GR Rivertown"]
     var filtered:[String] = []
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,32 +24,16 @@ class TeathresTableViewController: UITableViewController, UISearchBarDelegate{
         searchBar.delegate = self
         self.tableView.tableHeaderView = searchBar
         
-        self.navigationItem.title = "Cities"
+        self.navigationItem.title = "Teathers"
         
-        let alert2 = UIAlertController(title: "Requesting Permission", message: "Let us get your location to help you choosing your cinema", preferredStyle: .actionSheet)
-        alert2.addAction(UIAlertAction(title: "OK", style: .default) { action in
-            // perhaps use action.title here
-        })
-        
-        let alert = UIAlertController(title: "Alert", message: "It seems like you are in Grand Rapids, MI. Showing cinemas close to you area...", preferredStyle: .actionSheet)
-        alert.addAction(UIAlertAction(title: "OK", style: .default) { action in
-            self.present(alert2, animated: true)
-        })
-        self.present(alert, animated: true)
-        
-        
-        //var citiesSearchResult:Array<String>?
+
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        
-        
     }
-    
-
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         searchActive = true;
@@ -79,7 +65,7 @@ class TeathresTableViewController: UITableViewController, UISearchBarDelegate{
         }
         self.tableView.reloadData()
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -102,8 +88,8 @@ class TeathresTableViewController: UITableViewController, UISearchBarDelegate{
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "celll", for: indexPath)
+        
         // Configure the cell...
         if(searchActive){
             cell.textLabel?.text = filtered[indexPath.row]
@@ -111,11 +97,10 @@ class TeathresTableViewController: UITableViewController, UISearchBarDelegate{
             cell.textLabel?.text = data[indexPath.row];
         }
         cell.detailTextLabel?.text = "Michigan"
-
+        
         return cell
     }
-    
-    
+ 
 
     /*
     // Override to support conditional editing of the table view.

@@ -12,6 +12,8 @@
 		ECDCC4EA1DE4E8D9009A076B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECDCC4E91DE4E8D9009A076B /* Assets.xcassets */; };
 		ECDCC4ED1DE4E8D9009A076B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECDCC4EB1DE4E8D9009A076B /* LaunchScreen.storyboard */; };
 		ECDCC4F51DE4E914009A076B /* TeathresTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECDCC4F41DE4E914009A076B /* TeathresTableViewController.swift */; };
+		ECE34D441DE601BB0092B2A4 /* CitiesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE34D431DE601BB0092B2A4 /* CitiesTableViewController.swift */; };
+		ECE34D461DE611370092B2A4 /* MoviesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE34D451DE611370092B2A4 /* MoviesTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		ECDCC4EC1DE4E8D9009A076B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ECDCC4EE1DE4E8D9009A076B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ECDCC4F41DE4E914009A076B /* TeathresTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TeathresTableViewController.swift; sourceTree = "<group>"; };
+		ECE34D431DE601BB0092B2A4 /* CitiesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CitiesTableViewController.swift; sourceTree = "<group>"; };
+		ECE34D451DE611370092B2A4 /* MoviesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoviesTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,8 @@
 			children = (
 				ECDCC4E21DE4E8D9009A076B /* AppDelegate.swift */,
 				ECDCC4F41DE4E914009A076B /* TeathresTableViewController.swift */,
+				ECE34D431DE601BB0092B2A4 /* CitiesTableViewController.swift */,
+				ECE34D451DE611370092B2A4 /* MoviesTableViewController.swift */,
 				ECDCC4E61DE4E8D9009A076B /* Main.storyboard */,
 				ECDCC4E91DE4E8D9009A076B /* Assets.xcassets */,
 				ECDCC4EB1DE4E8D9009A076B /* LaunchScreen.storyboard */,
@@ -137,8 +143,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECE34D461DE611370092B2A4 /* MoviesTableViewController.swift in Sources */,
 				ECDCC4F51DE4E914009A076B /* TeathresTableViewController.swift in Sources */,
 				ECDCC4E31DE4E8D9009A076B /* AppDelegate.swift in Sources */,
+				ECE34D441DE601BB0092B2A4 /* CitiesTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,6 +308,7 @@
 				ECDCC4F31DE4E8D9009A076B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
